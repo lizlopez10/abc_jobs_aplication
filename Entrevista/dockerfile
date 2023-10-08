@@ -4,7 +4,7 @@ FROM node:18.17.1
 # Copiar el contenido del directorio actual en la imagen de docker
 COPY . /app
 
-# Cambiar de directorio de trabajo a donde esta el ejecutable del API
+# Cambiar de directorio de trabajo a donde esta el ejecutable del  API
 WORKDIR /app
 
 # Instalar requerimientos de la app
