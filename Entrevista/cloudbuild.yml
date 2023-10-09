@@ -1,4 +1,4 @@
-# This step runs the unit tests on the app
+# This step runs the unit tests on the  app
 steps:
   - uses: actions/checkout@v4
   - uses: actions/setup-node@v3
