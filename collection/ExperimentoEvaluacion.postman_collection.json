@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "63a82e59-2a7f-428b-8237-cf1bdd0676f9",
+		"name": "ExperimentoEvaluacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Iniciar evaluacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/evaluacion/iniciar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"evaluacion",
+						"iniciar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SolicitarPregunta",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/pregunta/solicitar/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pregunta",
+						"solicitar",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Responder Pregunta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idEvaluacion\": 5,\r\n    \"idPregunta\":11,\r\n    \"idRespuesta\": 21\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/pregunta/responder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pregunta",
+						"responder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finalizar evaluacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/evaluacion/finalizar/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"evaluacion",
+						"finalizar",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
