@@ -23,3 +23,12 @@ steps:
     args:
     - 'push'
     - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/job-cloudbuild:$SHORT_SHA'
+
+  # This step deploys the new version of our container image
+  # in the hello-cloudbuild Kubernetes Engine cluster.
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: Deploy
+    args:
+    - 'apply'
+    - '-f'
+    - 'k8-service.yml'
