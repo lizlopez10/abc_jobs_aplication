@@ -32,3 +32,6 @@ steps:
     - 'apply'
     - '-f'
     - 'k8-service.yml'
+    env:
+    - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=job-cloudbuild'
