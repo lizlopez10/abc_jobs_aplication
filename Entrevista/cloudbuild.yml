@@ -1,12 +1,11 @@
 # This step runs the unit tests on the app
 steps:
-  - uses: actions/checkout@v4
-  - uses: actions/setup-node@v3
-    with:
-      node-version: '18'
-      cache: 'npm'
-  - run: npm install
-  - run: npm test
+  - name: 'node'
+    entrypoint: 'npm'
+    args: ['install']
+  - name: 'node'
+    entrypoint: 'npm'
+    args: ['test']
 
   # This step builds the container image.
   - name: 'gcr.io/cloud-builders/docker'
