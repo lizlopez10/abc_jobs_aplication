@@ -44,20 +44,10 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
-          env:
-            - name: "SQLALCHEMY_DATABASE_URI"
-              valueFrom:
-                secretKeyRef:
-                  name: appsecrets 
-                  key: uri
           ports:
             - containerPort: 3000
           # Realizar pull siempre a la imagen
           imagePullPolicy: Always
-      volumes:
-        - name: appsecrets-volume
-          secret:
-            secretName: appsecrets
 
 # Vamos a especificar el balanceador de carga en este mismo archivo
 # para ello vamos a crear otro documento separado, esto se hace con el operador "---"
