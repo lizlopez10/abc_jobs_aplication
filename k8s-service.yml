@@ -33,10 +33,10 @@ spec:
       # Declaracion de contenedores
       # name: Nombre del contenedor
       # image: Nombre de la imagen, por defecto buscara en Docker Hub o en el repositorio privado
-      #        configurado en K8s
+      #        configurado en K8s 
       containers:
         - name: evaluacion
-          image: us-central1-docker.pkg.dev/proyecto-final-miso/proyecto-final-miso-experimento-latencia/evaluacion:6.0
+          image: us-central1-docker.pkg.dev/abc-jobs-cicd/my-repository/job-cloudbuild:COMMIT_SHA
           resources:
             requests:
               memory: "64Mi"
