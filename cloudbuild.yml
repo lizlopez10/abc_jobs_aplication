@@ -44,4 +44,4 @@ steps:
     env:
     - 'CLOUDSDK_COMPUTE_REGION=us-central1'
     - 'CLOUDSDK_CONTAINER_CLUSTER=job-cloudbuild'
-    - 'COMMIT_SHA=$SHORT_SHA'
+    - 'COMMIT_SHA_TEST=$SHORT_SHA'
