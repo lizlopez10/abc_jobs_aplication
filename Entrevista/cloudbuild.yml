@@ -1,0 +1,27 @@
+# This step runs the unit tests on the app
+steps:
+  - uses: actions/checkout@v4
+  - uses: actions/setup-node@v3
+    with:
+      node-version: '18'
+      cache: 'npm'
+  - run: npm install
+  - run: npm test
+
+# This step builds the container image.
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build
+  args:
+  - 'build'
+  - '-t'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/job-cloudbuild:$SHORT_SHA'
+  - '.'
+
+# This step pushes the image to Artifact Registry
+# The PROJECT_ID and SHORT_SHA variables are automatically
+# replaced by Cloud Build.
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push
+  args:
+  - 'push'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/job-cloudbuild:$SHORT_SHA'
