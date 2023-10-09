@@ -21,7 +21,7 @@ steps:
   # The PROJECT_ID and SHORT_SHA variables are automatically
   # replaced by Cloud Build.
   - name: 'gcr.io/cloud-builders/docker'
-  id: Push
-  args:
-  - 'push'
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/job-cloudbuild:$SHORT_SHA'
+    id: Push
+    args:
+    - 'push'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/job-cloudbuild:$SHORT_SHA'
