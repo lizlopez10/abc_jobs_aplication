@@ -32,6 +32,11 @@ steps:
     - '-c'
     - |
       sed 's/COMMIT_SHA/${SHORT_SHA}/g' > k8s-service.yml
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: Generate manifest
+    entrypoint: /bin/sh
+    args:
     - cat k8s-service.yml
 
   # This step deploys the new version of our container image
