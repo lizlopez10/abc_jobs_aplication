@@ -40,7 +40,7 @@ steps:
     args:
     - '-c'
     - |
-      sed -i '0,/^\([[:space:]]*COMMIT_SHA: *\).*/s//\lizeth/;'
+      sed "s/COMMIT_SHA/${SHORT_SHA}/" k8s-service.yml
 
   - name: 'gcr.io/cloud-builders/gcloud'
     id: print
