@@ -24,6 +24,15 @@ steps:
     - 'push'
     - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repository/job-cloudbuild:$SHORT_SHA'
   
+  
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: print 1
+    entrypoint: /bin/sh
+    args:
+    - '-c'
+    - |
+      sed -n l k8s-service.yml
+
   # This step generates the new manifest
   - name: 'gcr.io/cloud-builders/gcloud'
     id: Generate manifest
@@ -39,7 +48,7 @@ steps:
     args:
     - '-c'
     - |
-      cat k8s-service.yml
+      sed -n l k8s-service.yml
 
   # This step deploys the new version of our container image
   # in the hello-cloudbuild Kubernetes Engine cluster.
