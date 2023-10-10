@@ -37,7 +37,9 @@ steps:
     id: print
     entrypoint: /bin/sh
     args:
-    - cat k8s-service.yml
+    - '-c'
+    - |
+      cat k8s-service.yml
 
   # This step deploys the new version of our container image
   # in the hello-cloudbuild Kubernetes Engine cluster.
