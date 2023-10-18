@@ -61,7 +61,7 @@ spec:
     checkIntervalSec: 30
     port: 3000
     type: HTTP
-    requestPath: /healthcheck
+    requestPath: /evaluacion/healthcheck
 ---
 kind: Service
 apiVersion: v1
