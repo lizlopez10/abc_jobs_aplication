@@ -13,7 +13,7 @@ RUN npm install
 # Agregar variable de entorno con el nombre del estudiante
 # ENV user_name Estudiante
 ENV USER_DB postgres
-ENV HOST_DB 192.168.0.2
+ENV HOST_DB 10.37.224.3
 ENV NAME_DB postgres
 ENV PASSWORD_DB admin
 ENV PORT_DB 5432
