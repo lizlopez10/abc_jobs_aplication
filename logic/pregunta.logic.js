@@ -31,7 +31,7 @@ class EvaluacionLogic {
                     reject({codigoError: 400, mensaje: "No hay mas preguntas, finalice la evaluacion"});
                     return;
                 }
-                var i = preguntasResult.rows.length == 1 ? 0 : Math.floor(Math.random() * preguntasResult.rows.length);
+                var i = preguntas.length == 1 ? 0 : Math.floor(Math.random() * preguntas.length);
                 var pregunta = preguntas[i];
                 var respuestasResult = await respuestaData.selectRespuestasPregunta(pregunta.id);
                 var respuestas = respuestasResult.rows.map((respuesta) => {
@@ -58,7 +58,7 @@ class EvaluacionLogic {
                 fecha.setMinutes(minutes + sumarsesion);
                 var fechaActual = new Date();
                 if(fechaActual>fecha){
-                    reject({codigoError: 400, mensaje: "No hay mas preguntas, finalice la evaluacion"});
+                    reject({codigoError: 400, mensaje: "El tiempo de la prueba terminó"});
                     return;
                 }
                 var respuestasResult = await respuestaData.selectRespuestasPregunta(idPregunta);
