@@ -69,7 +69,7 @@ class EvaluacionLogic {
                     return;
                 }
                 preguntaRespondidaData.insertPreguntaRespondida(idPregunta,idEvaluacion,idRespuesta);
-                if (respuestasResult.rows.filter(respuesta => respuesta.escorrecta)[0].id == idRespuesta){
+                if (respuestasResult.rows.filter(respuesta => respuesta.es_correcta)[0].id == idRespuesta){
                     var evaluacionesResult = await evaluacionData.selectEvaluacion(idEvaluacion);
                     var evaluacion = evaluacionesResult.rows[0];
                     var nivel = evaluacion.ultimo_nivel

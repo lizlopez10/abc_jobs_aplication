@@ -3,13 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 var entrevistasRouter = require('./routes/evaluacion');
 var preguntasRouter = require('./routes/preguntas');
 var healthcheckRouter = require('./routes/healthcheck');
 
 var app = express();
-
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
