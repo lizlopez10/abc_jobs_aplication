@@ -36,7 +36,7 @@ spec:
       #        configurado en K8s 
       containers:
         - name: job-cloudbuild
-          image: us-central1-docker.pkg.dev/abc-jobs-cicd/my-repository/job-cloudbuild:cdc765e
+          image: us-central1-docker.pkg.dev/abc-jobs-cicd/my-repository/job-cloudbuild:24bd5a7
           resources:
             requests:
               memory: "64Mi"
