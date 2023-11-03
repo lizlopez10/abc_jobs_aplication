@@ -6,20 +6,36 @@ var router = express.Router();
 
 /* GET solicitar pregunta */
 router.get('/solicitar/:idEvaluacion', async function(req, res) {
-
-    const { idEvaluacion } = req.params
-    var result = await logica.obtenerPregunta(idEvaluacion)
-    if(!result){
-        res.status(201).send("No hay mas preguntas, finalice la evaluacion");    
+    try {
+        const { idEvaluacion } = req.params
+        var result = await logica.obtenerPregunta(idEvaluacion)
+        res.status(200).send(result);    
+    } catch (error) {
+        if(error.codigoError)
+        {
+            res.status(error.codigoError).send(error.mensaje);
+            return;
+        }
+        res.status(500).send(error);
     }
-    res.status(200).send(result);
+    
 });
 
 /* POST responder pregunta */
 router.post('/responder', async function(req, res) {
-    const { idEvaluacion, idPregunta, idRespuesta } = req.body
-    await logica.responderPregunta(idEvaluacion,idPregunta, idRespuesta);
-    res.status(200).send("Respuesta enviada");
+    try {
+        const { idEvaluacion, idPregunta, idRespuesta } = req.body
+        await logica.responderPregunta(idEvaluacion,idPregunta, idRespuesta);
+        res.status(200).send("Respuesta enviada");    
+    } catch (error) {
+        if(error.codigoError)
+        {
+            res.status(error.codigoError).send(error.mensaje);
+            return;
+        }
+        res.status(500).send(error);
+    }
+    
 });
 
 module.exports = router;

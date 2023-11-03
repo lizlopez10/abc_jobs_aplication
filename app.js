@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/evaluacion', entrevistasRouter);
-app.use('/pregunta', preguntasRouter);
+app.use('/evaluacion/pregunta', preguntasRouter);
 app.use('/evaluacion/healthcheck', healthcheckRouter);
 
 

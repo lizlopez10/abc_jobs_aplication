@@ -7,7 +7,7 @@ class PreguntaRespondidaData{
 
     insertPreguntaRespondida(idPregunta, idEvaluacion, idRespuesta) {
         return new Promise((resolve,reject) => {
-            db.query('INSERT INTO evaluacion.preguntarespondida (idpregunta, idevaluacion, idrespuesta) VALUES ($1, $2, $3) RETURNING *', [idPregunta, idEvaluacion, idRespuesta], (error, result)=>{
+            db.query('INSERT INTO evaluacion.pregunta_respondida (id_pregunta, id_evaluacion, id_respuesta) VALUES ($1, $2, $3) RETURNING *', [idPregunta, idEvaluacion, idRespuesta], (error, result)=>{
                 if(error){
                     reject(error)
                     return
@@ -19,7 +19,7 @@ class PreguntaRespondidaData{
 
     selectPreguntaRespondidaEvaluacion(idEvaluacion){
         return new Promise((resolve)=>{
-            db.query('SELECT * FROM evaluacion.preguntarespondida WHERE idevaluacion = $1', [idEvaluacion], (error, result) =>{
+            db.query('SELECT * FROM evaluacion.pregunta_respondida WHERE id_evaluacion = $1', [idEvaluacion], (error, result) =>{
                 if(error){
                     reject(error)
                     return
