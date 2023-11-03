@@ -13,7 +13,7 @@ router.get('/solicitar/:idEvaluacion', async function(req, res) {
     } catch (error) {
         if(error.codigoError)
         {
-            res.status(error.codigoError).send(error.mensaje);
+            res.status(error.codigoError).send(JSON.stringify(error));
             return;
         }
         res.status(500).send(error);
@@ -30,7 +30,7 @@ router.post('/responder', async function(req, res) {
     } catch (error) {
         if(error.codigoError)
         {
-            res.status(error.codigoError).send(error.mensaje);
+            res.status(error.codigoError).send(JSON.stringify(error));
             return;
         }
         res.status(500).send(error);

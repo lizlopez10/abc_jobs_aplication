@@ -11,11 +11,11 @@ router.post('/iniciar/:idCandidato', async function(req, res) {
   try {
     const { idCandidato } = req.params
     var result = await logica.iniciarEvaluacion(idCandidato);
-    res.status(201).send('id evaluacion: ' + result)  
+    res.status(201).send(JSON.stringify({id_evaluacion: result}))  
   } catch (error) {
     if(error.codigoError)
     {
-      res.status(error.codigoError).send(error.mensaje);
+      res.status(error.codigoError).send(JSON.stringify(error));
       return;
     }
     res.status(500).send(error);
@@ -33,7 +33,7 @@ router.post('/finalizar/:idEvaluacion', async function(req, res) {
   } catch (error) {
     if(error.codigoError)
     {
-      res.status(error.codigoError).send(error.mensaje);
+      res.status(error.codigoError).send(JSON.stringify(error));
       return;
     }
     res.status(500).send(error);
@@ -48,7 +48,7 @@ router.get('/obtener/:idCandidato', async function(req, res) {
   } catch (error) {
     if(error.codigoError)
     {
-      res.status(error.codigoError).send(error.mensaje);
+      res.status(error.codigoError).send(JSON.stringify(error));
       return;
     }
     res.status(500).send(error);
@@ -63,7 +63,7 @@ router.post('/crear', async function(req, res) {
   } catch (error) {
     if(error.codigoError)
     {
-      res.status(error.codigoError).send(error.mensaje);
+      res.status(error.codigoError).send(JSON.stringify(error));
       return;
     }
     res.status(500).send(error);
