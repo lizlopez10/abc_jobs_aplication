@@ -13,7 +13,7 @@ router.get('/solicitar/:idEvaluacion', async function(req, res) {
     } catch (error) {
         if(error.codigoError)
         {
-            res.status(error.codigoError).send(JSON.stringify(error));
+            res.status(error.codigoError).json(error);
             return;
         }
         res.status(500).send(error);
@@ -26,14 +26,14 @@ router.post('/responder', async function(req, res) {
     try {
         const { idEvaluacion, idPregunta, idRespuesta } = req.body
         await logica.responderPregunta(idEvaluacion,idPregunta, idRespuesta);
-        res.status(200).send("Respuesta enviada");    
+        res.status(200).json("Respuesta enviada");    
     } catch (error) {
         if(error.codigoError)
         {
-            res.status(error.codigoError).send(JSON.stringify(error));
+            res.status(error.codigoError).json(error);
             return;
         }
-        res.status(500).send(error);
+        res.status(500).json(error);
     }
     
 });

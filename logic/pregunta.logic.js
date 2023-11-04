@@ -15,7 +15,7 @@ class EvaluacionLogic {
                 var nivel = evaluacionesResult.rows[0].ultimo_nivel;
                 nivel++;
                 if(nivel == 6){ //Validacion de nivel máximo
-                    reject({codigoError: 400, mensaje: "No hay mas preguntas, finalice la evaluacion"});
+                    reject({codigoError: 409, mensaje: "No hay mas preguntas, finalice la evaluacion"});
                     return;
                 }
                 var preguntasResult = await preguntaData.selectPreguntasNivel(nivel);
@@ -28,7 +28,7 @@ class EvaluacionLogic {
                 preguntas = preguntas.filter(p => p);
                 console.log(pregunta);
                 if(preguntas.length == 0 ){
-                    reject({codigoError: 400, mensaje: "No hay mas preguntas, finalice la evaluacion"});
+                    reject({codigoError: 409, mensaje: "No hay mas preguntas, finalice la evaluacion"});
                     return;
                 }
                 var i = preguntas.length == 1 ? 0 : Math.floor(Math.random() * preguntas.length);
@@ -58,7 +58,7 @@ class EvaluacionLogic {
                 fecha.setMinutes(minutes + sumarsesion);
                 var fechaActual = new Date();
                 if(fechaActual>fecha){
-                    reject({codigoError: 400, mensaje: "El tiempo de la prueba terminó"});
+                    reject({codigoError: 409, mensaje: "El tiempo de la prueba terminó"});
                     return;
                 }
                 var respuestasResult = await respuestaData.selectRespuestasPregunta(idPregunta);
