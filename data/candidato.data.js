@@ -10,7 +10,7 @@ class CandidatoData{
             db.query('SELECT * FROM candidato.candidato WHERE id= $1', [idCandidato], (error, result) =>{
                 if(error){
                     reject(error)
-                    return
+                    return;
                 }
                 resolve(result)
             })
