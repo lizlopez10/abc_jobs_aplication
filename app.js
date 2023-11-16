@@ -8,6 +8,7 @@ var cors = require('cors');
 var entrevistasRouter = require('./routes/evaluacion');
 var preguntasRouter = require('./routes/preguntas');
 var healthcheckRouter = require('./routes/healthcheck');
+var desempenoRouter = require('./routes/evaluacion_desempeño');
 
 var app = express();
 app.use(cors());
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/evaluacion', entrevistasRouter);
 app.use('/evaluacion/pregunta', preguntasRouter);
+app.use('/evaluacion/desempeno', desempenoRouter);
 app.use('/evaluacion/healthcheck', healthcheckRouter);
 
 
