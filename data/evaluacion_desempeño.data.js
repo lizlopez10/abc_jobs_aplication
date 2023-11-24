@@ -16,6 +16,18 @@ class EvaluacionDesempenoData{
             })
         })   
     }
+
+    selectByIdContrato(idContrato){
+        return new Promise((resolve,reject) => {
+            db.query('select * from evaluacion.evaluacion_desempeno where id_contrato = $1 ', [idContrato], (error, result)=>{
+                if(error){
+                    reject(error)
+                    return
+                }
+                resolve(result)
+            })
+        })
+    }
 }
 
 const evaluacionDesempeno = new EvaluacionDesempenoData()
